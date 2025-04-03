@@ -27,6 +27,6 @@ _(Currently in Process of Configuring for Mobile)_
 - 🌍 **Levels** – Designed by me using [**Pixilart**](https://www.pixilart.com), a free online art community and pixel art tool.
 
 ## External Resources Used
-- [**retroindiejosh**](retroindiejosh.itch.io) (Theme Music, Free to use under CC-BY-SA 4.0)
-- [**Zapsplat**](Zapsplat.com) (Free-use audio SFX)
-- [**PixaBay**](PixaBay.com) (Free-use audio SFX) 
+- [**retroindiejosh**](https://retroindiejosh.itch.io) (Theme Music, Free to use under CC-BY-SA 4.0)
+- [**Zapsplat**](https://Zapsplat.com) (Free-use audio SFX)
+- [**PixaBay**](https://PixaBay.com) (Free-use audio SFX) 
