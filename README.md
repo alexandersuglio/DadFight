@@ -6,7 +6,7 @@ I came up with the idea for "_DadFight_" a few days after the 2024 Election as a
 
 1.0 Release Date: 4/3/2025
 
-Desktop Version
+Desktop Version (Currently in Process of Configuring for Mobile)
 <a href="https://alexandersuglio.github.io/DadFight/"> Playable Here </a>
 
 ## How To Play
