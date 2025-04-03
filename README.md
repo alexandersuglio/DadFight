@@ -6,8 +6,10 @@ I came up with the idea for "_DadFight_" a few days after the 2024 Election as a
 
 1.0 Release Date: 4/3/2025
 
-Desktop Version (Currently in Process of Configuring for Mobile)
-<a href="https://alexandersuglio.github.io/DadFight/"> Playable Here </a>
+**Desktop Version**
+👉 <a href="https://alexandersuglio.github.io/DadFight/"> Playable Here </a>
+
+_(Currently in Process of Configuring for Mobile)_
 
 ## How To Play
 - 🕹 **Move:** Arrow Keys ⬅️ ➡️ let Dad Move Left and Right
