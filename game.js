@@ -109,7 +109,7 @@ function preload() {
         player2Text = players[1];
 
         this.load.spritesheet('dad1', './assets/new_assets/Fox_Dad.png', { frameWidth: 192, frameHeight: 192 });
-        this.load.spritesheet('dad2', './assets/new_Assets/MSNBC_Dad.png', { frameWidth: 192, frameHeight: 192 });
+        this.load.spritesheet('dad2', './assets/new_assets/MSNBC_Dad.png', { frameWidth: 192, frameHeight: 192 });
 
     } else if (playerA === "dad2" && playerB == 'dad1') {
 
@@ -117,7 +117,7 @@ function preload() {
         player2Text = players[0];
 
         this.load.spritesheet('dad2', './assets/new_assets/Fox_Dad.png', { frameWidth: 192, frameHeight: 192 });
-        this.load.spritesheet('dad1', './assets/new_Assets/MSNBC_Dad.png', { frameWidth: 192, frameHeight: 192 });
+        this.load.spritesheet('dad1', './assets/new_assets/MSNBC_Dad.png', { frameWidth: 192, frameHeight: 192 });
 
     } else if (playerA === "dad1" && playerB == 'dad1') {
 
@@ -127,7 +127,7 @@ function preload() {
         player2Text = players[0];
 
         this.load.spritesheet('dad1', './assets/new_assets/Fox_Dad.png', { frameWidth: 192, frameHeight: 192 });
-        this.load.spritesheet('dad2', './assets/new_Assets/Fox_Dad.png', { frameWidth: 192, frameHeight: 192 });
+        this.load.spritesheet('dad2', './assets/new_assets/Fox_Dad.png', { frameWidth: 192, frameHeight: 192 });
 
     } else if (playerA === "dad2" && playerB == 'dad2') {
 
@@ -137,7 +137,7 @@ function preload() {
         player2Text = players[1];
 
         this.load.spritesheet('dad1', './assets/new_assets/MSNBC_Dad.png', { frameWidth: 192, frameHeight: 192 });
-        this.load.spritesheet('dad2', './assets/new_Assets/MSNBC_Dad.png', { frameWidth: 192, frameHeight: 192 });
+        this.load.spritesheet('dad2', './assets/new_assets/MSNBC_Dad.png', { frameWidth: 192, frameHeight: 192 });
 
     }
         
@@ -148,12 +148,12 @@ function preload() {
         this.load.image('background4', './assets/venues/GoodOnes/HighSchoolReunion.png'); 
 
 
-        this.load.audio('punchSound', 'assets/sounds/punch.mp3');  
-        this.load.audio('punchWhoosh', 'assets/sounds/punchWhoosh.mp3');  
-        this.load.audio('dingDing', 'assets/sounds/boxingbellround.mp3');  
-        this.load.audio('fight', 'assets/sounds/fight.mp3'); 
-        this.load.audio('epic', 'assets/sounds/epic.mp3');  
-        this.load.audio('police', 'assets/sounds/police.mp3');  
+        this.load.audio('punchSound', './assets/sounds/punch.mp3');  
+        this.load.audio('punchWhoosh', './assets/sounds/punchWhoosh.mp3');  
+        this.load.audio('dingDing', './assets/sounds/boxingbellround.mp3');  
+        this.load.audio('fight', './assets/sounds/fight.mp3'); 
+        this.load.audio('epic', './assets/sounds/epic.mp3');  
+        this.load.audio('police', './assets/sounds/police.mp3');  
 
         // this.load.spritesheet('dad1', './assets/new_assets/Fox_Dad.png', { frameWidth: 192, frameHeight: 192 });
         // this.load.spritesheet('dad2', './assets/new_Assets/MSNBC_Dad.png', { frameWidth: 192, frameHeight: 192 });
