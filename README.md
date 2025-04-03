@@ -21,5 +21,6 @@ Desktop Version
 - 🌍 **Levels** – Designed by me using [**Pixilart**](https://www.pixilart.com), a free online art community and pixel art tool.
 
 ## External Resources Used
+- retroindiejosh.itch.io (Theme Music, Free to use under CC-BY-SA 4.0)
 - Zapsplat.com (Free-use audio SFX)
 - PixaBay.com (Free-use audio SFX) 
