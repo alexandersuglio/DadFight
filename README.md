@@ -1,7 +1,11 @@
-https://alexandersuglio.github.io/DadFight/
+# DadFight 1.0
 
-⬅️ ➡️ Left Arrow and Right Arrow Keys for Direction
+<a href="https://alexandersuglio.github.io/DadFight/"> Playable Here </a>
 
-⎵ Space Bar for Attack
+**Instructions**
+
+⬅️ Left Arrow moves Dad Left
+➡️ Right Arrow moves Dad Right
+⎵ Space Bar lets Dad Attack
 
 
