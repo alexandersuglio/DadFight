@@ -19,5 +19,5 @@ Desktop Version
 - 🌍 **Levels** – Designed by me using [**Pixilart**](https://www.pixilart.com), a free online art community and pixel art tool.
 
 ## External Resources Used
-- ZapSplat.com (Free-use audio SFX)
+- Zapsplat.com (Free-use audio SFX)
 - PixaBay.com (Free-use audio SFX) 
