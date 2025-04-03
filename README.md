@@ -1,6 +1,6 @@
 # DadFight 1.0
 
-# About
+## About
 I came up with the idea for "_DadFight_" a few days after the 2024 Election as a fun side project to explore. I've always been interested in pixel art and have been fascinated by the idea of creating my own game, which led me to pursue this project. The concept for "_DadFight_" is something I thought of as relatable in this political climate, and it’s been a great way for me to practice and experiment with game design. Please note, this game is in no means a political statement nor does it reflect any personal ideology – it's simply a funny idea that I ran with.
 
 1.0 Release Date: 4/3/2025
@@ -8,11 +8,11 @@ I came up with the idea for "_DadFight_" a few days after the 2024 Election as a
 Desktop Version
 <a href="https://alexandersuglio.github.io/DadFight/"> Playable Here </a>
 
-# How To Play
+## How To Play
 - 🕹 **Move:** Arrow Keys ⬅️ ➡️ let Dad Move Left and Right
 - ✊ **Punch:** Spacebar lets Dad Attack
 
-# Written In
+## Written In
 - Phaser.js
 - CSS/HTML
 
