@@ -2,7 +2,7 @@
 <img src="./assets/DadFightLogo.png" alt="DF Logo" width="500"/>
 
 ## About
-I came up with the idea for "_DadFight_" a few days after the 2024 Election as a fun side project to explore. I've always been interested in pixel art and have been fascinated by the idea of creating my own game, which led me to pursue this project. The concept for "_DadFight_" is something I thought of as relatable in this political climate, and it’s been a great way for me to practice JavaScript development and experiment with game design. Please note, this game is in no means a political statement nor does it reflect any personal ideology 
+I came up with the idea for "_DadFight_" a few days after the 2024 Election as a fun side project to explore. I've always been interested in pixel art and have been fascinated by the idea of creating my own game, which led me to pursue this project. The concept for "_DadFight_" is something I thought of as humorously relatable in this political climate, and it’s been a great way for me to practice JavaScript development and experiment with game design. Please note, this game is in no means a political statement nor does it reflect any personal ideology 
 
 
 – it's simply a funny idea that I ran with.
