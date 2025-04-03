@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dad Fight! Main Menu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="assets/ico/favicon.ico">
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Press Start 2P';
+        background-color: #111;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .container {
+        text-align: center;
+        width: 90%;
+        padding: 20px;
+        z-index: 1;
+    }
+
+    .gradient-text {
+        font-size: 5vw;
+        font-weight: bold;
+        background-image: linear-gradient(to bottom, red 40%, orange 80%, yellow);
+        -webkit-background-clip: text;
+        color: transparent;
+        letter-spacing: 4px;
+    }
+
+    .tagline {
+        font-size: 1.25vw;
+        margin-top: 10px;
+        color: #f1c40f;
+    }
+
+    .start-button {
+        font-family: 'Press Start 2P';
+        margin-top: 30px;
+        padding: 15px 30px;
+        padding: 1vw 3vw;
+        font-size: 1.5vw;
+        background-color: #ff2a68;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+        animation: pulseButton 2s ease-in-out infinite;
+    }
+
+    .start-button:hover {
+        background-color: #f1c40f;
+        transform: scale(1.1);
+        box-shadow: 0 0 10px rgba(255, 40, 104, 0.6);
+    }
+
+    @keyframes pulseButton {
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.05);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+    </style>
+</head>
+<!-- <body>
+    <div class="container">
+        <h1 class="gradient-text">DadFight</h1> 
+        <p class="tagline">Driven by Pride. Charged for Assault.</p>
+        <a href="./selection.html">
+            <button class="start-button">Start the Battle</button>
+        </a>
+    </div>
+</body> -->
+
+<body>
+    <div class="container">
+        <h1 class="gradient-text">DadFight</h1>
+        <p class="tagline" id="random-tagline">Loading...</p>
+        <a href="./selection.html">
+            <button class="start-button">Start the Battle</button>
+        </a>
+    </div>
+    <audio id="themeSong" src="./assets/sounds/themeSong.mp3" preload="auto" loop></audio>
+    <script>
+
+    window.onload = function() {
+        let themeMusic = document.getElementById("themeSong");
+        themeMusic.volume = 0.3;
+        themeMusic.loop = true;
+
+        if (!sessionStorage.getItem("musicPlaying")) {
+            document.body.addEventListener("click", function() {
+                themeMusic.play().then(() => {
+                    sessionStorage.setItem("musicPlaying", "true");
+                }).catch(err => console.log("Audio play failed:", err));
+            }, { once: true });
+        }
+    };
+    
+    const taglines = [
+        "Driven by Pride. Charged for Assault.",
+        "Fueled by Passion. Powered by Chaos.",
+        "Adrenaline Overdrive. Respect the Dad.",
+        "Unleashed and Unstoppable.",
+        "Torque Meets Jort.",
+        "Fueled by Coffee. Powered by Rage.",
+        "Dad Strength: Like a Truck, But Crazier.",
+        "Don't Mess with the Grill Master.",
+        "Unleashing Dad Rage, One Lawnmower at a Time.",
+        "Built for the Backyard, Ready for Battle.",
+        "Caught Between Naps and Revenge.",
+        "IT'S A DAD FIGHT!",
+        "Fearless in Battle, Terrified of his Mother-In-Law.",
+        "Lord of the Science Project.",
+        "Master of all Tools, Still Managed to Burn Down the Garage.",
+        "King of the Cul-de-Sac.",
+        "Dad Jeans, White Sneakers, Dead Enemies.",
+        "Defense Wins Championships.",
+        "'We've Got all the Right Pieces, It's up to the Coach Now'",
+        "'Don't Tell Your Mother'",
+        "'Hold on, Just Lemme Pee First'",
+        "'One sec, I've Got a Coupon for That'",
+        "'Why is That Door Open, Are We Cooling the Whole Neighborhood Now?'",
+        "'Who Changed the Thermostat?'",
+        "'Did Someone Say Wal-Mart?'",
+        "Big Dad Energy ACTIVATED",
+        "'Have You Called Your Grandmother This Month?'",
+        "'Your Mother's in One Of Her Moods.'",
+        "'It's Like a Furnace in Here.'",
+        "'It's Like a Meat Locker in Here.'",
+        "'What the Hell's a Nonprofit?'",
+        "'It's a DVD About Girls, and They're Going Wild.'"
+    ];
+
+    // random tagline
+    function getRandomTagline() {
+        const randomIndex = Math.floor(Math.random() * taglines.length);
+        return taglines[randomIndex];
+    }
+
+    document.getElementById('random-tagline').textContent = getRandomTagline();
+    </script>
+</body>
+
+</html>

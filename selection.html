@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dad Fight! Select</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="assets/ico/favicon.ico">
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    #fighter-details {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+
+
+    .fighter img {
+        width: 100px;
+        height: 100px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
+
+    .fighter img:hover {
+        transform: scale(1.2);
+    }
+
+    #bio-popup {
+        position: fixed;
+        top: 5%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        color: white;
+        z-index: 1000;
+        font-size: 12px;
+        line-height: 2.0;
+        font-family: "DotGothic16", sans-serif;
+    }
+
+    #bio-popup button {
+        margin-top: 10px;
+        background: #ff5722;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    body {
+        font-family: 'Press Start 2P', cursive;
+        background-color: #111;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        margin: 0;
+        text-align: center;
+    }
+
+    .gradient-text {
+        font-family: 'Press Start 2P', cursive;
+        font-size: 3vw;
+        color: #fff;
+        font-weight: bold;
+        background-image: linear-gradient(to bottom, red 40%, orange 80%, yellow);
+        -webkit-background-clip: text;
+        color: transparent;
+
+        margin-bottom: 10px;
+    }
+
+    #loading-message {
+        font-family: 'Press Start 2P', cursive;
+        color: #fff !important;
+    }
+
+    button {
+        font-family: 'Press Start 2P', cursive;
+        color: white;
+        background-color: #ff2a68;
+        border: none;
+        padding: 15px 32px;
+        font-size: 8px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+        font-weight: bold;
+        margin: 10px;
+    }
+
+    button:hover {
+        background-color: #f1c40f;
+        transform: scale(1.1);
+        box-shadow: 0 0 10px rgba(255, 40, 104, 0.6);
+    }
+
+    .container {
+        padding-top: 30px;
+
+    }
+
+    #selection-screen h2 {
+        font-size: 13px;
+        margin: 20px 0;
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    #game-container {
+        display: none;
+    }
+
+    #loading-message {
+        font-size: 2rem;
+        color: #ff5722;
+        margin-top: 200px;
+    }
+
+    .small-x {
+        font-size: 0.8rem;
+        color: white;
+        cursor: not-allowed;
+        background-color: gray;
+    }
+
+    .small-x.active {
+        color: white;
+        cursor: pointer;
+        background-color: #ff2a68;
+    }
+
+    .small-x:hover {
+        background-color: gray;
+    }
+
+
+    #start-game-btn {
+        animation: pulseButton 2s ease-in-out infinite;
+    }
+
+    #start-game-btn:disabled {
+        background-color: gray;
+        cursor: not-allowed;
+        animation: none;
+    }
+
+    .fighter {
+        padding-top: 10px;
+        background-color: #1e1e1e;
+    }
+
+    @keyframes pulseButton {
+        0% {
+            transform: scale(1);
+            /* Normal size */
+        }
+
+        50% {
+            transform: scale(1.05);
+            /* Slightly enlarged */
+        }
+
+        100% {
+            transform: scale(1);
+            /* Back to normal size */
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 id="fight-title" class="gradient-text">CHOOSE YOUR DAD</h1>
+        <div id="fighter-details">
+            <div class="fighter" id="fighter-dad1">
+                <img src="./assets/bios/FoxDad12.gif" alt="Fox News Dad" onclick="toggleBio('dad1')">
+                <div class="button-container">
+                    <button onclick="selectFighter('dad1')">Fox News Dad</button>
+                </div>
+            </div>
+            <div class="fighter" id="fighter-dad2">
+                <img src="./assets/bios/MSNBCDad12.gif" alt="MSNBC News Dad" onclick="toggleBio('dad2')">
+                <div class="button-container">
+                    <button onclick="selectFighter('dad2')">MSNBC News Dad</button>
+                </div>
+            </div>
+        </div>
+        <div id="bio-popup" style="display:none;">
+            <p id="bio-text"></p>
+        </div>
+        <!--         <div id="selection-screen">
+            <h2>Player 1: <span id="playerA-selection">None</span>
+                <button class="small-x" onclick="resetFighter('playerA')">X</button>
+            </h2>
+            <h2>Player 2 (CPU): <span id="playerB-selection">None</span>
+                <button class="small-x" onclick="resetFighter('playerB')">X</button>
+            </h2>
+        </div> -->
+        <div id="selection-screen" style="width: 50%; margin: auto; text-align: center; display: flex; flex-direction: column; align-items: center;">
+            <h2 style="display: flex; align-items: center; justify-content: space-between; width: 80%; max-width: 700px;">
+                Player 1:
+                <span id="playerA-selection" style="min-width: 100px; text-align: center;">None</span>
+                <button class="small-x" style="margin-left: 10px;" onclick="resetFighter('playerA')">X</button>
+            </h2>
+            <h2 style="display: flex; align-items: center; justify-content: space-between; width: 80%; max-width: 700px;">
+                Player CPU:
+                <span id="playerB-selection" style="min-width: 100px; text-align: center;">None</span>
+                <button class="small-x" style="margin-left: 10px;" onclick="resetFighter('playerB')">X</button>
+            </h2>
+        </div>
+        <div id="game-container">
+            <div id="game"></div>
+        </div>
+        <div id="loading-message" class="gradient-text" style="display: none;">Getting dads angry...</div>
+        <div id="venue-selection">
+            <h1 class="gradient-text">SELECT LEVEL</h1>
+            <div class="button-container">
+                <button onclick="chooseVenue('VenueA')">House Depot Parking Lot</button>
+                <button onclick="chooseVenue('VenueB')">Organic Farmer's Market</button>
+                <button onclick="chooseVenue('VenueC')">Real Estate Tradeshow</button>
+                <button onclick="chooseVenue('VenueD')">Highschool Reunion</button>
+            </div>
+            <h2 style="font-size: 13px; margin: 20px 0;">Level: <span id="venue-selection-display">None</span></h2>
+        </div>
+        <button id="start-game-btn" onclick="startGame()" disabled> FIGHT! </button>
+    </div>
+    <script>
+        
+    window.onload = function() {
+        let themeMusic = new Audio("./assets/sounds/themeSong.mp3");
+        themeMusic.volume = 0.3;
+        themeMusic.loop = true;
+
+        if (sessionStorage.getItem("musicPlaying")) {
+            themeMusic.play().catch(err => console.log("Audio resume failed:", err));
+        }
+    };
+
+    let selectPlayerA = null;
+    let selectPlayerB = null;
+    let selectedVenue = null;
+
+    function selectFighter(fighter) {
+        if (!selectPlayerA) {
+            selectPlayerA = fighter;
+            document.getElementById('playerA-selection').textContent = (selectPlayerA === 'dad1') ? "Fox News Dad" : "MSNBC News Dad";
+            document.querySelector('[onclick="resetFighter(\'playerA\')"]').classList.add("active");
+        } else if (!selectPlayerB) {
+            selectPlayerB = fighter;
+            document.getElementById('playerB-selection').textContent = (selectPlayerB === 'dad2') ? "MSNBC News Dad" : "Fox News Dad";
+            document.querySelector('[onclick="resetFighter(\'playerB\')"]').classList.add("active");
+        }
+
+        checkStartButton();
+    }
+
+    function resetFighter(player) {
+        if (player === 'playerA') {
+            selectPlayerA = null;
+            document.getElementById('playerA-selection').textContent = "None";
+            document.querySelector('[onclick="resetFighter(\'playerA\')"]').classList.remove("active");
+        } else if (player === 'playerB') {
+            selectPlayerB = null;
+            document.getElementById('playerB-selection').textContent = "None";
+            document.querySelector('[onclick="resetFighter(\'playerB\')"]').classList.remove("active");
+        }
+
+        checkStartButton();
+    }
+
+    // function chooseVenue(venue) {
+    //     selectedVenue = venue;
+    //     document.getElementById('venue-selection-display').textContent = (selectedVenue === 'VenueA') ? "House Depot Parking Lot" : "Organic Farmer's Market";
+    //     checkStartButton();
+    // }
+
+    function chooseVenue(venue) {
+        selectedVenue = venue;
+
+        const venueNames = {
+            'VenueA': "House Depot Parking Lot",
+            'VenueB': "Organic Farmer's Market",
+            'VenueC': "Real Estate Tradeshow",
+            'VenueD': "Highschool Reunion"
+        };
+
+        // Update the display with the correct venue name
+        document.getElementById('venue-selection-display').textContent = venueNames[selectedVenue] || "Unknown Venue";
+
+        checkStartButton();
+    }
+
+    function checkStartButton() {
+        document.getElementById('start-game-btn').disabled = !(selectPlayerA && selectPlayerB && selectedVenue);
+    }
+
+    function startGame() {
+
+        const fighter = document.getElementById('fighter-details');
+        const bioPopup = document.getElementById('bio-popup');
+
+        fighter.style.display = 'none';
+        bioPopup.style.display = 'none';
+
+        localStorage.setItem('selectPlayerA', selectPlayerA);
+        localStorage.setItem('selectPlayerB', selectPlayerB);
+        localStorage.setItem('selectedVenue', selectedVenue);
+
+        document.getElementById('loading-message').style.display = 'block';
+        document.getElementById('selection-screen').style.display = 'none';
+        document.getElementById('venue-selection').style.display = 'none';
+        document.getElementById('fight-title').style.display = 'none';
+        document.querySelector('.button-container').style.display = 'none';
+        document.getElementById('start-game-btn').style.display = 'none';
+
+        setTimeout(function() {
+            window.location.href = 'fight.html';
+        }, 1500);
+    }
+
+    let currentBio = null;
+
+    const bios = {
+        dad1: "Owns a moderately successful plumbing supply business. Loves his country, war movies, and reminding you that high school football was tougher back in his day.",
+        dad2: "He's a pacifist but don't push him. Loves National Public Radio, volunteering, and a good New Yorker think piece."
+    };
+
+    function toggleBio(fighter) {
+        const bioPopup = document.getElementById('bio-popup');
+        const bioText = document.getElementById('bio-text');
+
+        // If the same fighter is clicked again, hide the bio
+        if (currentBio === fighter) {
+            bioPopup.style.display = 'none';
+            currentBio = null;
+        } else {
+
+            // Shows bio of the clicked fighter
+            bioText.textContent = bios[fighter];
+            bioPopup.style.display = 'block';
+            currentBio = fighter;
+        }
+    }
+    </script>
+</body>
+
+</html>
