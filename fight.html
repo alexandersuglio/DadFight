@@ -144,12 +144,8 @@
         /* Behind everything else in .tv-screen */
     }
 
-    @media screen and (max-width: 768px) {
-        body {
-            background-color: black;
-            overflow: hidden;
-        }
-
+    /* Portrait on small screens = hide TV, show just game */
+    @media screen and (max-width: 768px) and (orientation: portrait) {
         body::before {
             display: none;
         }
@@ -163,6 +159,26 @@
             width: 100% !important;
             height: 100% !important;
             margin: 0 !important;
+        }
+    }
+
+    /* Landscape on small screens = keep the TV & layout */
+    @media screen and (max-width: 768px) and (orientation: landscape) {
+        canvas {
+            width: 80% !important;
+            height: auto !important;
+            margin: 0 auto;
+            position: absolute;
+            top: 10%;
+            left: 10%;
+        }
+
+        .tv-container {
+            display: block;
+        }
+
+        body::before {
+            display: block;
         }
     }
 
