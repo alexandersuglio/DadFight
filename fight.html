@@ -143,6 +143,31 @@
         z-index: 0;
         /* Behind everything else in .tv-screen */
     }
+
+    @media screen and (max-width: 768px) {
+        body {
+            background-color: black;
+            overflow: hidden;
+        }
+
+        body::before {
+            display: none;
+        }
+
+        .tv-container {
+            display: none;
+        }
+
+        canvas {
+            position: static !important;
+            width: 100% !important;
+            height: 100% !important;
+            margin: 0 !important;
+        }
+    }
+
+
+        
     </style>
 </head>
 
