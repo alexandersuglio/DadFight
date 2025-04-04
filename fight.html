@@ -144,45 +144,25 @@
         /* Behind everything else in .tv-screen */
     }
 
-    /* Portrait on small screens = hide TV, show just game */
-    @media screen and (max-width: 768px) and (orientation: portrait) {
+    @media screen and (max-width: 768px) {
         body::before {
-            display: none;
+            display: none !important;
         }
 
         .tv-container {
-            display: none;
+            display: none !important;
         }
 
         canvas {
-            position: static !important;
-            width: 100% !important;
-            height: 100% !important;
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            width: 100vw !important;
+            height: 100vh !important;
             margin: 0 !important;
+            z-index: 1;
         }
     }
-
-    /* Landscape on small screens = keep the TV & layout */
-    @media screen and (max-width: 768px) and (orientation: landscape) {
-        canvas {
-            width: 80% !important;
-            height: auto !important;
-            margin: 0 auto;
-            position: absolute;
-            top: 10%;
-            left: 10%;
-        }
-
-        .tv-container {
-            display: block;
-        }
-
-        body::before {
-            display: block;
-        }
-    }
-
-
         
     </style>
 </head>
