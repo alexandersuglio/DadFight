@@ -737,23 +737,25 @@ document.addEventListener("DOMContentLoaded", () => {
         //     return;
         // }
 
-        if (gamePaused && !this.tapHandled) {
-            const playerWon = player1Score >= 2 || player2Score >= 2;
+    if (gamePaused) {
+        const playerWon = player1Score >= 2 || player2Score >= 2;
 
-            if (
-                Phaser.Input.Keyboard.JustDown(this.keys.R) ||
-                Phaser.Input.Keyboard.JustDown(this.keys.Enter) ||
-                this.input.activePointer.isDown
-            ) {
-                this.tapHandled = true;
-
-                if (!playerWon) {
-                    resetRound(this);
-                } else {
-                    redirectToMain();
-                }
-            }
+    // Tap or key press: If game is paused
+    if (
+        Phaser.Input.Keyboard.JustDown(this.keys.R) ||
+        Phaser.Input.Keyboard.JustDown(this.keys.Enter) ||
+        this.input.activePointer.isDown
+    ) {
+        if (!playerWon) {
+            resetRound(this); // Next round
+        } else {
+            redirectToMain(); // Go back to menu
         }
+    }
+
+    return;
+    }
+
         // Detect movement to the left
         if (this.cursors.left.isDown || moveLeft) {
             player1.x -= 2; // Move player to the left
